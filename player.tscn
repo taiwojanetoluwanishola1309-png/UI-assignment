@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://3lvd2nlm8oso"]
+
+[ext_resource type="Texture2D" uid="uid://c4utwcjl0yg76" path="res://bird_angry.png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://bg4ubq4mx6kg5" path="res://bird_angry.gd" id="2_onrkg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1niu"]
+size = Vector2(88.88889, 91.111115)
+
+[node name="player" type="CharacterBody2D" unique_id=43035165]
+script = ExtResource("2_onrkg")
+
+[node name="BirdAngry" type="Sprite2D" parent="." unique_id=1310503103]
+position = Vector2(2, 5.0000305)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_4flbx")
+
+[node name="Camera2D" type="Camera2D" parent="BirdAngry" unique_id=1353320935]
+zoom = Vector2(4, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=266007570]
+position = Vector2(2.2222223, 1.1111112)
+shape = SubResource("RectangleShape2D_o1niu")

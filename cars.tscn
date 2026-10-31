@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cmfyg8duw5lhs"]
+
+[ext_resource type="Texture2D" uid="uid://cgvtilagem3np" path="res://graphics/objects/red car.png" id="1_7fvwh"]
+[ext_resource type="Texture2D" uid="uid://b8fq8sgkmu4dx" path="res://graphics/objects/green car.png" id="2_2fbf8"]
+[ext_resource type="Texture2D" uid="uid://58kopy31xbf8" path="res://graphics/objects/taxi.png" id="3_lbnrj"]
+[ext_resource type="Texture2D" uid="uid://oqgtp468wc6x" path="res://graphics/objects/sign.png" id="4_yu0hy"]
+[ext_resource type="Texture2D" uid="uid://cfe22lwgaf1k2" path="res://graphics/objects/traffic.png" id="5_i4d1k"]
+
+[node name="cars" type="Node2D" unique_id=461105556]
+
+[node name="RedCar" type="Sprite2D" parent="." unique_id=1348776821]
+position = Vector2(409, 227)
+texture = ExtResource("1_7fvwh")
+
+[node name="GreenCar" type="Sprite2D" parent="." unique_id=1031635096]
+position = Vector2(432, 347)
+texture = ExtResource("2_2fbf8")
+
+[node name="Taxi" type="Sprite2D" parent="." unique_id=1289976607]
+position = Vector2(324, 382)
+texture = ExtResource("3_lbnrj")
+
+[node name="Sign" type="Sprite2D" parent="." unique_id=314960233]
+position = Vector2(232, 220)
+texture = ExtResource("4_yu0hy")
+
+[node name="Traffic" type="Sprite2D" parent="." unique_id=1961809784]
+position = Vector2(309, 493)
+texture = ExtResource("5_i4d1k")

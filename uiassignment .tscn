@@ -1,0 +1,169 @@
+[gd_scene format=3 uid="uid://cylah8wdw08bf"]
+
+[ext_resource type="Theme" uid="uid://crm1xp42ja55r" path="res://ui_theme.tres" id="1_numba"]
+[ext_resource type="Texture2D" uid="uid://c4utwcjl0yg76" path="res://bird_angry.png" id="2_qvyh3"]
+[ext_resource type="Script" uid="uid://gthcggyy4r6w" path="res://health_bar.gd" id="3_6404c"]
+[ext_resource type="Script" uid="uid://bd1mfjqu2linh" path="res://toast.gd" id="4_prlie"]
+[ext_resource type="Script" uid="uid://dpvbrdmiyxox3" path="res://pause_menu.gd" id="5_sgvxv"]
+
+[node name="UI" type="CanvasLayer" unique_id=1994054833]
+
+[node name="Root" type="Control" parent="." unique_id=1502890294]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_numba")
+
+[node name="HUD" type="MarginContainer" parent="Root" unique_id=805068202]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HealthRow" type="HBoxContainer" parent="Root/HUD" unique_id=1350758651]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="HealthIcon" type="TextureRect" parent="Root/HUD/HealthRow" unique_id=1225738860]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_qvyh3")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HealthBar" type="ProgressBar" parent="Root/HUD/HealthRow" unique_id=1959097343]
+custom_minimum_size = Vector2(250, 30)
+layout_mode = 2
+size_flags_vertical = 4
+value = 20.0
+script = ExtResource("3_6404c")
+
+[node name="Hunger Timer" type="Timer" parent="Root/HUD/HealthRow/HealthBar" unique_id=79467356]
+wait_time = 3.0
+autostart = true
+
+[node name="PauseButton" type="Button" parent="Root/HUD" unique_id=1736181872]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+focus_mode = 0
+text = "Pause (P)"
+
+[node name="GameOver" type="CenterContainer" parent="Root" unique_id=1825329239]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Root/GameOver" unique_id=760998384]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Root/GameOver/PanelContainer" unique_id=145645261]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Root/GameOver/PanelContainer/VBoxContainer" unique_id=1732564337]
+layout_mode = 2
+text = "The bird fainted from hunger!"
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="Root/GameOver/PanelContainer/VBoxContainer" unique_id=1944490954]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Restart"
+
+[node name="ToastArea" type="MarginContainer" parent="Root" unique_id=882522874]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 20
+
+[node name="Toast" type="PanelContainer" parent="Root/ToastArea" unique_id=1906342620]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 2
+script = ExtResource("4_prlie")
+
+[node name="ToastLabel" type="Label" parent="Root/ToastArea/Toast" unique_id=479798842]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Maize eaten! 9 left"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="PauseMenu" type="CenterContainer" parent="Root" unique_id=1336654287]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_sgvxv")
+
+[node name="PanelContainer" type="PanelContainer" parent="Root/PauseMenu" unique_id=243986269]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Root/PauseMenu/PanelContainer" unique_id=418299745]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Root/PauseMenu/PanelContainer/MarginContainer" unique_id=1194454283]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="Root/PauseMenu/PanelContainer/MarginContainer/VBoxContainer" unique_id=1720678298]
+layout_mode = 2
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="Root/PauseMenu/PanelContainer/MarginContainer/VBoxContainer" unique_id=1764678807]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+text = "Resume"
+
+[node name="RestartButton2" type="Button" parent="Root/PauseMenu/PanelContainer/MarginContainer/VBoxContainer" unique_id=1238260112]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+text = "Restart"
+
+[node name="QuitButton" type="Button" parent="Root/PauseMenu/PanelContainer/MarginContainer/VBoxContainer" unique_id=552287652]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+text = "Quit"
+
+[node name="ConfirmDialog" type="ConfirmationDialog" parent="Root/PauseMenu" unique_id=1018414840]
+unique_name_in_owner = true
+title = "Are you sure?"
+
+[connection signal="timeout" from="Root/HUD/HealthRow/HealthBar/Hunger Timer" to="Root/HUD/HealthRow/HealthBar" method="_on_hunger_timer_timeout"]
+[connection signal="pressed" from="Root/GameOver/PanelContainer/VBoxContainer/RestartButton" to="Root/HUD/HealthRow/HealthBar" method="_on_restart_button_pressed"]
